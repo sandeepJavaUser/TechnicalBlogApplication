@@ -1,16 +1,15 @@
-package technicalblog;
+package technicalblog.service;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Service;
+import technicalblog.model.Post;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-@Controller
-public class HomeController {
-    @RequestMapping("/")
-    public String getAllPosts(Model model) {
+@Service
+public class PostService {
+
+    public ArrayList<Post> getAllPost(){
         ArrayList<Post> posts = new ArrayList<>();
 
         Post post1 = new Post();
@@ -32,7 +31,19 @@ public class HomeController {
         posts.add(post2);
         posts.add(post3);
 
-        model.addAttribute("posts", posts);
-        return "index";
+        return posts;
+    }
+
+    public ArrayList<Post> getOnePost(){
+
+        ArrayList<Post> posts = new ArrayList<Post>();
+
+        Post post1= new Post();
+        post1.setBody("This is Your Post");
+        post1.setTitle("This is Your Post");
+        post1.setDate(new Date());
+
+        posts.add(post1);
+        return posts;
     }
 }
