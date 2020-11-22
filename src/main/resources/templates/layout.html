@@ -4,13 +4,20 @@
 <body>
 <header th:fragment="logged-out" th:remove="tag">
     <header>
-        <a href="user/login.html" th:href="@{users/login}">login</a>
-        <a href="user/registration.html" th:href="@{users/registration}">Registration</a>
+        <a href="user/login.html" th:href="@{/users/login}">login</a>
+        <a href="user/registration.html" th:href="@{/users/registration}">Registration</a>
+<!--        <a href="user/webUnderCon.html" th:href="@{/users/createpost}">createpost</a>-->
     </header>
 </header>
 <header th:fragment="logged-in" th:remove="tag">
-    <header>
-       <form method="post" th:action="@{users/logout}">
+    <p>
+<!--        <form method="get" th:action="@{/users/createpost}" >-->
+<!--            <input type="submit" value="createpost">-->
+<!--        </form>-->
+
+        <p><a href="user/create.html" th:href="@{/posts/newpost}">createpost</a></p>
+
+       <form method="post" th:action="@{/users/logout}">
            <input type="submit" value="logout">
        </form>
     </header>
